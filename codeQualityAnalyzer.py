@@ -2,17 +2,20 @@
 
 #Input a file
 #check what language it's in C, Java, Python, Cpp
-#for now, show which variables have been named that have a single letter named.
+#for now, show which variable names that have a length less than 4.
 
 import sys
+import variableNameLength
+
 
 def fileExtensionMapping(fileExtension):
-    switcher={
+    switcher = {
         "js": ["js", "JavaScript"],
         "c": ["c", "C"],
         "java": ["java", "Java"],
         "py": ["py", "Python"]
-    }
+    } 
+
     return switcher.get(fileExtension, ["Error: can not process file type " + fileExtension])
 
 def getFileType(filename): 
@@ -32,64 +35,22 @@ def getFileType(filename):
 		print(fileExtensionArray[0])
 		return
 
-	print("You gave us a " + fileExtensionArray[1] +  ". Processing it now...\n")
+	print("You gave us a " + fileExtensionArray[1] +  ". Processing it now...")
+	print("If there were any errors you can find them in the errors.txt file")
 
 
 	return fileExtensionArray[0]
-
-
-def printVariableNameLengthErrors(errors):
-
-	f = open("errors.txt", "a")
-
-	for error in errors:
-		#print("At line number: ", error[0], " you have a variable name that's length is less than 4")
-		f.write("At line number: " + str(error[0]) + " you have a variable name that's length is less than 4\n")
-		#print("Line: ", error[1])
-		f.write("Line: " +  str(error[1] + "\n"))
-
-	f.close()
-
-def variableNameLengthChecker(fileExtension, filename):
-
-	# If no extension, then we can't handle the file
-	if fileExtension:
-		fileContents = open(filename, "r")
-		lineNumber = 0
-		errors = []
-
-		for line in fileContents:
-			lineNumber = lineNumber + 1
-			lineContents = line.split(" ")
-
-			previousWord = ""
-
-			for word in lineContents:
-				if word == "=":
-					if len(previousWord) < 4:
-						errors.append([lineNumber, line])
-
-
-				previousWord = word
-
-		printVariableNameLengthErrors(errors)
-
-
-		fileContents.close()
-
-	return 
 
 
 def main(): 
 
 	fileExtension = getFileType(str(sys.argv[1]))
 
-	f = open("errors.txt", "w")
+	f = open("warnings.txt", "w")
 	f.write("File Name: " + sys.argv[1] + "\n\n")
 	f.close()
 
-	variableNameLengthChecker(fileExtension, sys.argv[1])
-
+	variableNameLength.variableNameLengthChecker(fileExtension, sys.argv[1])
 
 
 

@@ -1,0 +1,10 @@
+File Name: check.js
+
+-------------------- Variable Name Length Warnings (2) --------------------
+
+At line number: 2 you have a variable name that's length is less than 4
+Line: const v = "A";
+
+At line number: 3 you have a variable name that's length is less than 4
+Line: let a = "A"
+
