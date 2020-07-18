@@ -1,0 +1,8 @@
+File Name: codeQualityAnalyzer.py
+
+At line number: 43 you have a variable name that's length is less than 4
+Line: 	f = open("errors.txt", "a")
+
+At line number: 87 you have a variable name that's length is less than 4
+Line: 	f = open("errors.txt", "w")
+
