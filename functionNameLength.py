@@ -38,7 +38,6 @@ def funtionNameLengthCheckerJava(filename):
 	return
 
 def funtionNameLengthCheckerPy(filename): 
-	print("Inside functionName py " + filename)
 
 	fileContents = open(filename, "r")
 	lineNumber = 0
@@ -55,9 +54,6 @@ def funtionNameLengthCheckerPy(filename):
 
 				defFoundFlag = 0
 				functionName = word.split("(")[0]
-
-				print("function name length  " + str(len(functionName)))
-				print("funtion name length limit " + str(configuration.functionNameLength))
 				
 				if len(functionName) < configuration.functionNameLength:
 					warnings.append([lineNumber, line])

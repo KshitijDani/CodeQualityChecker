@@ -37,7 +37,7 @@ def getFileType(filename):
 		return
 
 	print("You gave us a " + fileExtensionArray[1] +  ". Processing it now...")
-	print("If there were any errors you can find them in the errors.txt file")
+	print("If there were any warnings you can find them in the warnings.txt file")
 
 
 	return fileExtensionArray[0]
@@ -50,7 +50,7 @@ def main():
 	f = open("warnings.txt", "w")
 	f.write("File Name: " + sys.argv[1] + "\n\n")
 	f.close()
-	
+
 	variableNameLength.variableNameLengthChecker(fileExtension, sys.argv[1])
 	functionNameLength.functionNameLengthChecker(fileExtension, sys.argv[1])
 

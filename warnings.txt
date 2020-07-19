@@ -7,7 +7,7 @@ Line: fun = 5
 
 -------------------- Function Name Length Warnings (2) --------------------
 
-At line number: 4: def lov(): 
+At line number 4: def lov(): 
 
-At line number: 7: def loving(): 
+At line number 7: def loving(): 
 
