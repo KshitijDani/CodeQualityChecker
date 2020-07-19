@@ -7,7 +7,7 @@ def writeVariableNameLengthWarning(warnings):
 	f.write("-------------------- Variable Name Length Warnings (" + str(len(warnings)) + ") --------------------\n\n")
 
 	for warning in warnings:
-		f.write("At line number: " + str(warning[0]) + " you have a variable name that's length is less than " + str(configuration.variableNameLength) + "\n")
+		f.write("At line number: " + str(warning[0]) + " you have a variable name who's length is less than " + str(configuration.variableNameLength) + "\n")
 		f.write("Line: " +  str(warning[1] + "\n"))
 
 	f.close()
@@ -15,27 +15,29 @@ def writeVariableNameLengthWarning(warnings):
 
 def variableNameLengthChecker(fileExtension, filename):
 
+	if configuration.variableNameLengthFlag: 
+
 	# If no extension, then we can't handle the file
-	if fileExtension:
-		fileContents = open(filename, "r")
-		lineNumber = 0
-		warnings = []
+		if fileExtension:
+			fileContents = open(filename, "r")
+			lineNumber = 0
+			warnings = []
 
-		for line in fileContents:
-			lineNumber = lineNumber + 1
-			lineContents = line.split(" ")
+			for line in fileContents:
+				lineNumber = lineNumber + 1
+				lineContents = line.split(" ")
 
-			previousWord = ""
+				previousWord = ""
 
-			for word in lineContents:
-				if word == "=":
-					if len(previousWord) < configuration.variableNameLength:
-						warnings.append([lineNumber, line])
+				for word in lineContents:
+					if word == "=":
+						if len(previousWord) < configuration.variableNameLength:
+							warnings.append([lineNumber, line])
 
 
-				previousWord = word
+					previousWord = word
 
-		fileContents.close()
-		writeVariableNameLengthWarning(warnings)
+			fileContents.close()
+			writeVariableNameLengthWarning(warnings)
 
 	return 

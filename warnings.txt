@@ -1,10 +1,13 @@
-File Name: check.js
+File Name: test.py
 
--------------------- Variable Name Length Warnings (2) --------------------
+-------------------- Variable Name Length Warnings (1) --------------------
 
-At line number: 2 you have a variable name that's length is less than 4
-Line: const v = "A";
+At line number: 1 you have a variable name who's length is less than 4
+Line: fun = 5
 
-At line number: 3 you have a variable name that's length is less than 4
-Line: let a = "A"
+-------------------- Function Name Length Warnings (2) --------------------
+
+At line number: 4: def lov(): 
+
+At line number: 7: def loving(): 
 

@@ -6,6 +6,7 @@
 
 import sys
 import variableNameLength
+import functionNameLength
 
 
 def fileExtensionMapping(fileExtension):
@@ -49,8 +50,9 @@ def main():
 	f = open("warnings.txt", "w")
 	f.write("File Name: " + sys.argv[1] + "\n\n")
 	f.close()
-
+	
 	variableNameLength.variableNameLengthChecker(fileExtension, sys.argv[1])
+	functionNameLength.functionNameLengthChecker(fileExtension, sys.argv[1])
 
 
 
